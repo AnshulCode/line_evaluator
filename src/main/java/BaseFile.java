@@ -27,7 +27,6 @@ public class BaseFile {
             if (line != null) {
                 return line;
             }
-            reader.close();
             return null;
         } catch (IOException e) {
             e.printStackTrace();

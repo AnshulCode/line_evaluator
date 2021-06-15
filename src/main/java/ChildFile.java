@@ -1,16 +1,25 @@
-import java.util.StringTokenizer;
+import java.util.*;
 public class ChildFile extends BaseFile {
-    BaseFile operatingFile;
-    int sum;
-    public ChildFile (BaseFile base){
-        this.operatingFile = base;
+    String fileName;
+    BaseFile opperatingFile;
+    int sum = 0;
+    public ChildFile (String file){
+        this.fileName = file;
+        this.opperatingFile = new BaseFile(fileName);
     }
-    private void sumOfLine(){
-        String line = operatingFile.readNextLine();
+    public String sumOfLine(){
+        int sumOfLine = 0;
+        String line = opperatingFile.readNextLine();
         if(line == null){
-           return;
+            return null;
         }
-
+        StringTokenizer st = new StringTokenizer(line,",");
+        while(st.hasMoreTokens()){
+          int num = Integer.parseInt(st.nextToken());
+          sum+=num;
+        }
+        return "";
     }
+
 
 }
